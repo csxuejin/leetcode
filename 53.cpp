@@ -5,13 +5,8 @@ public:
             return 0;
         int maxSum = INT_MIN, curSum = 0;
         for (int i=0; i<nums.size(); i++){
-            if(curSum <= 0){
-                curSum = nums[i];
-            }else{
-                curSum += nums[i];
-            }
-            if(curSum > maxSum)
-                maxSum = curSum;
+            curSum = max(nums[i], curSum + nums[i]);
+            maxSum = max(curSum, maxSum);
         }
         return maxSum;
     }
