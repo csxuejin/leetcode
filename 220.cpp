@@ -6,6 +6,7 @@ public:
             if(i>k){
                 window.erase(nums[i-k-1]);
             }
+            
             //找出  x - nums[i] >= -t; 即 x>= nums[i]-t
             set<int>::iterator it = window.lower_bound(nums[i] - t);
 
