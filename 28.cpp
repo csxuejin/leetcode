@@ -8,6 +8,7 @@ public:
         }
         char firCh = needle[0];
         for (int i=0; i<haystack.size(); i++){
+            if(haystack.size()-i+1 < len) break;
             char ch = haystack[i];
             if (ch == firCh){
                 string str = haystack.substr(i,len);
