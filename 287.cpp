@@ -21,6 +21,5 @@ public:
             }
         }
         return 0;
-        
     }
 };
