@@ -9,25 +9,17 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode *newHead = new ListNode(0);
-        ListNode *p = newHead;
-        ListNode *t = head;
-        while(t){
-            if(t->val < x){
-                p->next = new ListNode(t->val);
-                p = p->next;
-            }
-            
-            t = t->next;
+        ListNode *left = new ListNode(0), *right = new ListNode(0);
+        ListNode *leftHead = left, *rightHead = right;
+        while(head){
+            // The next line is important. Pay attention to "&".
+            ListNode*& ref = head->val<x? left:right;
+            ref->next = head;
+            ref = ref->next;
+            head = head->next;
         }
-        t = head;
-        while(t){
-            if(t->val >= x){
-                p->next = new ListNode(t->val);
-                p = p->next;
-            }
-            t = t->next;
-        }
-        return newHead->next;
+        left->next = rightHead->next;
+        right->next = NULL;
+        return leftHead->next;
     }
 };
