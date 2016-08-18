@@ -28,17 +28,15 @@ public:
 class Solution {
 public:
     string reverseVowels(string s) {
-        string::iterator p1=s.begin(), p2=s.end();
-        // in c++ 11, can use "auto", like:
-        // auto p1 = s.being(), p2 = s.end()
-		string vowString = "aeiouAEIOU";
-		while(p1<p2){
-			while( vowString.find(*p1)==string::npos && (p1<p2)) p1++;
-			while( vowString.find(*p2)==string::npos && (p1<p2)) p2--;
-			if (p1<p2) swap(*p1,*p2);
-			p1++;
-			p2--;
-		}
-		return s;
+        auto p1 = s.begin(), p2 = s.end()-1;
+        string vowString = "aeiouAEIOU";
+        while(p1<p2){
+            while( vowString.find(*p1)==string::npos && (p1<p2) ) p1++;
+            while( vowString.find(*p2)==string::npos && (p1<p2) ) p2--;
+            if (p1<p2) swap(*p1,*p2);
+            p1++;
+            p2--;
+        }
+        return s;
     }
 };
