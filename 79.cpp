@@ -14,13 +14,9 @@ public:
         string str = "";
         for(int i=0; i<row; i++){
             for(int j=0; j<col; j++){
-                if(board[i][j]==word[0] && !used[i][j]){
-                    if(dfs(board, str, i, j, 0)){
+                if(board[i][j]==word[0])
+                    if(dfs(board, str, i, j, 0))
                         return true;
-                    }
-                    used.clear();
-                    used.resize(row, vector<bool>(col, false));
-                }
             }
         }
         return false;
@@ -36,9 +32,8 @@ public:
             int tx = x + xx[i];
             int ty = y + yy[i];
             if( tx>=0 && tx<row && ty>=0 && ty<col && !used[tx][ty] && board[tx][ty]==tar[pos+1]){
-                if(dfs(board, str, tx, ty, pos+1)){
+                if(dfs(board, str, tx, ty, pos+1))
                     return true;
-                }
             }
         }
         str = str.substr(0,str.size()-1);
@@ -46,5 +41,4 @@ public:
         return false;
     }
 };
-
 
