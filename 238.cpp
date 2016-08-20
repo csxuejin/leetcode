@@ -3,8 +3,7 @@ public:
     vector<int> productExceptSelf(vector<int>& nums) {
         if(nums.empty() || nums.size()==1)
             return nums;
-        vector<int> left(nums.size(),0);
-        vector<int> right(nums.size(),0);
+        vector<int> left(nums.size(),0), right(nums.size(),0);
         for(int i=0; i<nums.size(); i++){
             if(i==0){
                 left[i] = nums[i];
