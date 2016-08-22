@@ -19,7 +19,6 @@ public:
         if(preorder.size() == 1) 
             return new TreeNode(preorder[pos1]);
         TreeNode *root = new TreeNode(preorder[pos1]);
-        cout<<"pos1="<<pos1<<endl;
         int leftLen = 0;
         for(int i=pos2; i<inorder.size(); i++){
             if(inorder[i] == root->val) 
