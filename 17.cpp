@@ -14,11 +14,9 @@ public:
             return;
         }
         string str = num[dig[0]-'0'];
-        string subStr = dig.substr(1, dig.length()-1);
+        string subStr = dig.substr(1);
         for (int i=0; i<str.length(); i++){
             helper(tmp + str[i], subStr);
         }
     }
-    
-    
 };
