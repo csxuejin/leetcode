@@ -15,7 +15,7 @@ public:
                 if (helper(vec.back(), t)){
                     vec.pop_back();
                 }else{
-                    vec.push_back(t);
+                    return false;
                 }
             }
         }
