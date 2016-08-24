@@ -21,3 +21,17 @@ public:
         return len;
     }
 };
+
+
+/* method 2: using istringstream
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        istringstream ss(s);
+        while(ss>>s){}
+        int i=0;
+        for(i=0; i<s.size() && s[i]==' '; i++);
+        return s.size()-i;
+    }
+};
+*/
