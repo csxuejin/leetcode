@@ -17,17 +17,9 @@ public:
         helper(version1, &v1);
         helper(version2, &v2);
         int i=0, j=0;
-        for (; i<v1.size() && j<v2.size(); i++,j++){
-            if (v1[i] > v2[j]) return 1;
-            if (v1[i] < v2[j]) return -1;
-        }
-        while(i < v1.size()){
-            if (v1[i] > 0 ) return 1;
-            i++;
-        }
-        while(j < v2.size()){
-            if (v2[j] > 0 ) return -1;
-            j++;
+        for (; i<v1.size() || j<v2.size(); i++,j++){
+            if ( (j>=v2.size() && v1[i]>0) || (i<v1.size() && j<v2.size() && v1[i] > v2[j])) return 1;
+            if ( (i>=v1.size() && v2[j]>0) || (i<v1.size() && j<v2.size() && v1[i] < v2[j])) return -1;
         }
         return 0;
     }
