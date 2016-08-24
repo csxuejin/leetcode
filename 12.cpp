@@ -1,9 +1,11 @@
 class Solution {
+private:
+    vector<string> THOUS  = {"","M","MM","MMM"};
+    vector<string> HUNDS  = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+    vector<string> TENS   = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+    vector<string> ONES   = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+    
 public:
-    const static string THOUS[];
-    const static string HUNDS[];
-    const static string TENS[];
-    const static string ONES[];
     string intToRoman(int num) {
         string result;
         result += THOUS[(int)(num/1000)%10];
@@ -13,8 +15,3 @@ public:
         return result;
     }
 };
-
-const string Solution::THOUS[]  = {"","M","MM","MMM"};
-const string Solution::HUNDS[]  = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-const string Solution::TENS[]   = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
-const string Solution::ONES[]   = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
