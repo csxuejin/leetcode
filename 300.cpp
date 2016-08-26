@@ -31,9 +31,7 @@ public:
                     LIS[i] = max(LIS[i], LIS[j]+1);
                 }
             }
-            if(LIS[i]>res){
-                res = LIS[i];
-            }
+            res = max(res, LIS[i]);
         }
         return res;
     }
