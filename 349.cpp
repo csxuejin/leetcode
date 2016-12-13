@@ -19,7 +19,6 @@ class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
         map<int, int> mm;
-        map<int, int> record;
         vector<int> res;
         for(int i=0; i<nums1.size(); i++){
             mm[nums1[i]] = 1;
