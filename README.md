@@ -1,2 +1,3 @@
-# Leetcode-Solutions
-c++ solutions for Leetcode 
+### This is my code for Leetcode, including:
+- C++
+- Golang
