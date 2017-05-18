@@ -10,15 +10,15 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        if(root == NULL) 
+        if(!root) 
             return true;
         return helper(root->left, root->right);
     }
     
     bool helper(TreeNode* left, TreeNode* right){
-        if(left==NULL && right==NULL) 
+        if(!left && !right) 
             return true;
-        if( (left==NULL && right!=NULL) || (left!=NULL && right==NULL) || (left->val != right->val) ){
+        if( (!left && right) || (left && !right) || (left->val != right->val) ){
             return false;
         }
          
