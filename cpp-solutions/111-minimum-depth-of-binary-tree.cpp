@@ -20,9 +20,7 @@ public:
     
     int dfs(TreeNode* root, int level){
          if(!root->left && !root->right){
-            if(level < result){
-                result = level;
-            }
+            result = min(result, level);
             return;
          }
 
