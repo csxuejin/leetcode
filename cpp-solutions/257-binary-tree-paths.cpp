@@ -8,22 +8,23 @@
  * };
  */
 class Solution {
+private:
+    vector<string> res;
 public:
     vector<string> binaryTreePaths(TreeNode* root) {
-        vector<string> res;
-        helper(res, "", root);
+        helper(root, "");
         return res;
     }
     
-    void helper(vector<string> &res, string path, TreeNode* root){
-        if(root == NULL) 
+    void helper(TreeNode* root, string path){
+        if(!root) 
             return;
         path = path==""? to_string(root->val) : path+"->"+to_string(root->val);
-        if(root->left == NULL && root->right == NULL){
+        if(!root->left && !root->right){
             res.push_back(path);
         }
        
-        helper(res, path, root->left);
-        helper(res, path, root->right);
+        helper(root->left, path);
+        helper(root->right, path);
     }
 };
