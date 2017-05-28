@@ -18,7 +18,6 @@ public:
                    break;
                 default:
                    right = mid -1;
-                   break;
             }
         }
         return left;
