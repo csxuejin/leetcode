@@ -1,14 +1,25 @@
 ### Leetcode 算法精讲
 
-Hi，这本书将会对 Leetcode 上的算法题进行分析和讲解，给出 Go 或者 C++ 的解题代码。
+这本书将会对 Leetcode 上的算法题进行分析和讲解，主要使用 Golang 解题。
 如果你喜欢，欢迎关注。
 
-我的联系方式： 
+#### 作者
 
-微博： [EasyHacking](http://weibo.com/realxuejin)
+* 薛锦
+
+  * [微博](https://weibo.com/1660913012/profile?topnav=1&wvr=6)
+  * [github](https://github.com/csxuejin)
+  * 个人公众号
+
+  ![GitHub Logo](/pics/easy-hacking.jpg)
 
 
-微信公众号： EasyHacking
+* 宋佳洋
 
-![EasyHacking](/images/easy-hacking.jpg)
+  * [微博](https://weibo.com/songjiayang1?refer_flag=1005055010_)
+  * [github](https://github.com/songjiayang)
+  * 个人公众号
+  
+  ![第二范式](/pics/第二范式.jpg)
+
 
