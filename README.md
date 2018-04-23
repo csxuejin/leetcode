@@ -3,6 +3,8 @@
 这本书将会对 Leetcode 上的算法题进行分析和讲解，主要使用 Golang 解题。
 如果你喜欢，欢迎关注。
 
+- [gitbook](https://legacy.gitbook.com/book/csxuejin/leetcode/details)
+
 #### 作者
 
 * 薛锦
