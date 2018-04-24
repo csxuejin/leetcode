@@ -8,3 +8,4 @@
     * [5. Longest Palindromic Substring](algorithms/5.md)
     * [11. Container With Most Water](algorithms/11.md)
     * [561. Array Partition I](algorithms/561.md)
+    * [647. Palindromic Substrings](algorithms/647.md)
