@@ -9,6 +9,7 @@
     * [6. ZigZag Conversion](algorithms/6.md)
     * [7. Reverse Integer](algorithms/7.md)
     * [8. String to Integer (atoi)](algorithms/8.md)
+    * [9. Palindrome Number](algorithms/9.md)
     * [11. Container With Most Water](algorithms/11.md)
     * [561. Array Partition I](algorithms/561.md)
     * [647. Palindromic Substrings](algorithms/647.md)
