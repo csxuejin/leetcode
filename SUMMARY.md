@@ -12,6 +12,7 @@
     * [9. Palindrome Number](algorithms/9.md)
     * [11. Container With Most Water](algorithms/11.md)
     * [404. Sum of Left Leaves](algorithmes/404.md)
+    * [437. Path Sum III](algorithms/437.md)
     * [561. Array Partition I](algorithms/561.md)
     * [617. Merge Two Binary Trees](algorithms/617.md)
     * [637. Average of Levels in Binary Tree](algorithms/637.md)

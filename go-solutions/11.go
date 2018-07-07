@@ -1,3 +1,5 @@
+package main
+
 func min(a, b int) int {
 	if a < b {
 		return a
@@ -33,6 +35,3 @@ func maxArea(height []int) int {
 
 	return res
 }
-
-
-
