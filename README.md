@@ -4,6 +4,7 @@
 如果你喜欢，欢迎 Star。
 
 - [gitbook 在线浏览本书](https://legacy.gitbook.com/book/csxuejin/leetcode/details)
+- [github](https://github.com/csxuejin/leetcode)
 
 你也可以本地安装好 gitbook，然后浏览本书。
 
