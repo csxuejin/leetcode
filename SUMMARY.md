@@ -13,4 +13,5 @@
     * [11. Container With Most Water](algorithms/11.md)
     * [561. Array Partition I](algorithms/561.md)
     * [617. Merge Two Binary Trees](algorithms/617.md)
+    * [637. Average of Levels in Binary Tree](algorithms/637.md)
     * [647. Palindromic Substrings](algorithms/647.md)
