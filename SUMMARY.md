@@ -12,6 +12,7 @@
     * [9. Palindrome Number](algorithms/9.md)
     * [11. Container With Most Water](algorithms/11.md)
     * [112. Path Sum](algorithms/112.md)
+    * [124. Binary Tree Maximum Path Sum](algorithms/124.md)
     * [129. Sum Root to Leaf Numbers](algorithms/129.md)
     * [404. Sum of Left Leaves](algorithms/404.md)
     * [437. Path Sum III](algorithms/437.md)
