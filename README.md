@@ -14,3 +14,6 @@
 
 * `small_fish__` [[weibo](https://weibo.com/songjiayang1?refer_flag=1005055010_), [github](https://github.com/songjiayang)]
   
+#### How to contribute
+
+- 本书采用 gitbook 撰写: `SUMMARY.md` 是目录文档；解题报告写在 `algorithmes` 文件夹下；Go 源代码写在 `go-solutions` 文件夹下
