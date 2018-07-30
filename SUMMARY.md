@@ -21,4 +21,4 @@
     * [617. Merge Two Binary Trees](algorithms/617.md)
     * [637. Average of Levels in Binary Tree](algorithms/637.md)
     * [647. Palindromic Substrings](algorithms/647.md)
-
+    * [872. Leaf-Similar Trees](algorithms/872.md)
