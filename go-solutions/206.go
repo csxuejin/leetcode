@@ -6,26 +6,28 @@
  * }
  */
 
+// Solution 1: Iterative
 func reverseList(head *ListNode) *ListNode {
-	if head == nil {
-		return nil
-	}
-
-	prv := &ListNode{
-		Val:  head.Val,
-		Next: nil,
-	}
-
-	head = head.Next
+	var prev *ListNode = nil
 	for head != nil {
-		tmp := &ListNode{
-			Val:  head.Val,
-			Next: prv,
-		}
-
-		prv = tmp
-		head = head.Next
+		tmp := head.Next
+		head.Next = prev
+		prev = head
+		head = tmp
 	}
 
-	return prv
+	return prev
+}
+
+// Solution 2: Recursive
+func reverseList_recursively(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	p := reverseList(head.Next)
+
+	head.Next.Next = head
+	head.Next = nil
+	return p
 }
