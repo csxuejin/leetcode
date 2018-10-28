@@ -8,11 +8,9 @@
 
 你也可以本地安装好 gitbook，然后浏览本书。
 
-#### Authors
+#### Author
 
 * `EasyHacking`   [[weibo](https://weibo.com/1660913012/profile?topnav=1&wvr=6), [github](https://github.com/csxuejin)]
-
-* `small_fish__` [[weibo](https://weibo.com/songjiayang1?refer_flag=1005055010_), [github](https://github.com/songjiayang)]
   
 #### How to contribute
 
