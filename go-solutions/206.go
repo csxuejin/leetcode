@@ -1,54 +1,33 @@
-package main
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
 
-import "fmt"
-
-//Definition for singly-linked list.
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-func main() {
-	head := &ListNode{-1, nil}
-	head.Val = -1
-	tmp := head
-	fmt.Println(tmp.Val)
-	for i := 0; i < 5; i++ {
-		newNode := &ListNode{0, nil}
-		newNode.Val = i
-		tmp.Next = newNode
-		tmp = tmp.Next
-	}
-
-	head = reverseList(head)
-	fmt.Println("!!!")
-	for head != nil {
-		fmt.Println(head.Val)
-		head = head.Next
-	}
-}
-
+// Solution 1: Iterative
 func reverseList(head *ListNode) *ListNode {
-	if head == nil {
+	var prev *ListNode = nil
+	for head != nil {
+		tmp := head.Next
+		head.Next = prev
+		prev = head
+		head = tmp
+	}
+
+	return prev
+}
+
+// Solution 2: Recursive
+func reverseList_recursively(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
 		return head
 	}
 
-	now := head
-	next := head.Next
-	//count := 1
-	fmt.Println("place 1")
-	for next != nil {
-		//count++
-		//fmt.Println(count)
-		tmp := next.Next
-		next.Next = now
-		now = next
-		next = tmp
-	}
-	fmt.Println("here")
-	for now != nil {
-		fmt.Println(now.Val)
-		now = now.Next
-	}
-	return now
+	p := reverseList(head.Next)
+
+	head.Next.Next = head
+	head.Next = nil
+	return p
 }

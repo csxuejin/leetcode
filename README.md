@@ -11,6 +11,10 @@
 #### Author
 
 * `EasyHacking`   [[weibo](https://weibo.com/1660913012/profile?topnav=1&wvr=6), [github](https://github.com/csxuejin)]
+
+#### Contact me
+
+* csxuejin@gmail.com
   
 #### How to contribute
 
