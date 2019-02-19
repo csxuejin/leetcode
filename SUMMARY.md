@@ -23,3 +23,4 @@
     * [637. Average of Levels in Binary Tree](algorithms/637.md)
     * [647. Palindromic Substrings](algorithms/647.md)
     * [872. Leaf-Similar Trees](algorithms/872.md)
+    * [993. Cousins in Binary Tree](algorithms/993.md)

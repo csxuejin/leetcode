@@ -10,7 +10,7 @@
 
 #### Author
 
-* `EasyHacking`   [[weibo](https://weibo.com/1660913012/profile?topnav=1&wvr=6), [github](https://github.com/csxuejin)]
+* 薛锦   [[weibo](https://weibo.com/1660913012/profile?topnav=1&wvr=6), [Blog](https://xuejin.me)]
 
 #### Contact me
 
