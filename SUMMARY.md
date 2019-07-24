@@ -15,6 +15,7 @@
     * [112. Path Sum](algorithms/112.md)
     * [124. Binary Tree Maximum Path Sum](algorithms/124.md)
     * [129. Sum Root to Leaf Numbers](algorithms/129.md)
+    * [146. LRU Cache](algorithms/146.md)
     * [206. Reverse Linked List](algorithms/206.md)
     * [404. Sum of Left Leaves](algorithms/404.md)
     * [437. Path Sum III](algorithms/437.md)

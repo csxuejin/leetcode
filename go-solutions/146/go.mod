@@ -1,3 +1,3 @@
 module lru-cache
 
-require github.com/golib/assert v1.3.0
+require github.com/stretchr/testify v1.3.0
