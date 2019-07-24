@@ -12,6 +12,7 @@
     * [9. Palindrome Number](algorithms/9.md)
     * [11. Container With Most Water](algorithms/11.md)
     * [14. Longest Common Prefix](algorithms/14.md)
+    * [20. Valid Parentheses](algorithms/20.md)
     * [112. Path Sum](algorithms/112.md)
     * [124. Binary Tree Maximum Path Sum](algorithms/124.md)
     * [129. Sum Root to Leaf Numbers](algorithms/129.md)
