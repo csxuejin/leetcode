@@ -1,29 +1,16 @@
 package main
 
-import "fmt"
-
-func main() {
-	nums := []int{1, 2}
-	k := 1
-	rotate(nums, k)
-	fmt.Println(nums)
+func rotate(nums []int, k int) {
+	k = k % len(nums)
+	reverse(nums, 0, len(nums)-1)
+	reverse(nums, 0, k-1)
+	reverse(nums, k, len(nums)-1)
 }
 
-func rotate(nums []int, k int) {
-	len := len(nums)
-	k %= len
-	if k == 0 {
-		return
+func reverse(nums []int, start, end int) {
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
 	}
-	tNums := []int{}
-	for left, right := len-k, len-1; left <= right; left = left + 1 {
-		tNums = append(tNums, nums[left])
-	}
-	fmt.Println("1 tNums = ", tNums)
-	for left, right := 0, k-1; left <= right; left = left + 1 {
-		tNums = append(tNums, nums[left])
-	}
-	fmt.Println("tNums = ", tNums)
-	nums = tNums
-	fmt.Println("nums = ", nums)
 }
