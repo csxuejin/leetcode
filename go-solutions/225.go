@@ -53,3 +53,53 @@ func (this *MyStack) Empty() bool {
  * param_3 := obj.Top();
  * param_4 := obj.Empty();
  */
+
+// method 2: use container/list to mock queue
+//import "container/list"
+//
+//type MyStack struct {
+//	q1 *list.List
+//	q2 *list.List
+//}
+//
+///** Initialize your data structure here. */
+//func Constructor() MyStack {
+//	return MyStack{
+//		q1: list.New(),
+//		q2: list.New(),
+//	}
+//}
+//
+///** Push element x onto stack. */
+//func (this *MyStack) Push(x int)  {
+//	this.q1.PushBack(x)
+//}
+//
+///** Removes the element on top of the stack and returns that element. */
+//func (this *MyStack) Pop() int {
+//	for this.q1.Len() > 1 {
+//		ele := this.q1.Front()
+//		fmt.Printf("ele value is %v\n", ele.Value)
+//		this.q2.PushBack(ele.Value)
+//		this.q1.Remove(ele)
+//	}
+//	res := this.q1.Front()
+//	this.q1.Remove(res)
+//
+//	this.q1 = this.q2
+//	this.q2 = list.New()
+//
+//	return res.Value.(int)
+//}
+//
+///** Get the top element. */
+//func (this *MyStack) Top() int {
+//	ele := this.Pop()
+//	this.q1.PushBack(ele)
+//	return ele
+//}
+//
+///** Returns whether the stack is empty. */
+//func (this *MyStack) Empty() bool {
+//	return this.q1.Len() == 0
+//}
