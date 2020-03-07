@@ -11,12 +11,7 @@ func threeSum(nums []int) [][]int {
 			continue
 		}
 
-		var (
-			left  = i + 1
-			right = len(nums) - 1
-		)
-
-		for left < right {
+		for left, right := i+1, len(nums)-1; left < right; {
 			val := nums[i] + nums[left] + nums[right]
 
 			switch {
