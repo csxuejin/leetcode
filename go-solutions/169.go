@@ -1,10 +1,12 @@
-func containsDuplicate(nums []int) bool {
+package main
+
+func majorityElement(nums []int) int {
 	mm := make(map[int]int)
 	for _, v := range nums {
 		mm[v]++
-		if mm[v] > 1 {
-			return true
+		if mm[v] > len(nums)/2 {
+			return v
 		}
 	}
-	return false
+	return 0
 }
