@@ -1,7 +1,9 @@
 package main
 
+var used [][]bool
+
 func numIslands(grid [][]byte) int {
-	used := make([][]bool, len(grid))
+	used = make([][]bool, len(grid))
 	for i := 0; i < len(used); i++ {
 		used[i] = make([]bool, len(grid[0]))
 	}
@@ -12,42 +14,23 @@ func numIslands(grid [][]byte) int {
 			if used[i][j] || grid[i][j] == '0' {
 				continue
 			}
-			node := Node{
-				x: i,
-				y: j,
-			}
-			bfs(node, &grid, &used)
+			node := Node{x: i, y: j}
+			bfs(node, &grid)
 			res++
 		}
 	}
 	return res
 }
 
-type Node struct {
-	x, y int
-}
-
-func bfs(node Node, grid *[][]byte, used *[][]bool) {
-	arr := [][]int{
-		{-1, 0},
-		{1, 0},
-		{0, -1},
-		{0, 1},
-	}
-
-	queue := make([]Node, 0)
-	queue = append(queue, node)
-	pos := 0
-
-	for pos < len(queue) {
-		curNode := queue[pos]
+func bfs(node Node, grid *[][]byte) {
+	m, n := len(*grid), len((*grid)[0])
+	queue := []Node{node}
+	for len(queue) > 0 {
+		curNode := queue[0]
 		for i := 0; i < len(arr); i++ {
 			curX := curNode.x + arr[i][0]
 			curY := curNode.y + arr[i][1]
-			if (curX < 0 || curX >= len(*grid)) || (curY < 0 || curY >= len((*grid)[0])) {
-				continue
-			}
-			if (*used)[curX][curY] {
+			if (curX < 0 || curX >= m) || (curY < 0 || curY >= n) || used[curX][curY] {
 				continue
 			}
 
@@ -57,9 +40,19 @@ func bfs(node Node, grid *[][]byte, used *[][]bool) {
 					y: curY,
 				})
 			}
-
-			(*used)[curX][curY] = true
+			used[curX][curY] = true
 		}
-		pos++
+		queue = queue[1:]
 	}
+}
+
+type Node struct {
+	x, y int
+}
+
+var arr = [][]int{
+	{-1, 0},
+	{1, 0},
+	{0, -1},
+	{0, 1},
 }
