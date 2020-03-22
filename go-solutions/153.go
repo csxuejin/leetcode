@@ -6,16 +6,17 @@ func findMin(nums []int) int {
 	}
 
 	left, right := 0, len(nums)-1
-	if nums[right] > nums[0] {
-		return nums[0]
+	if nums[right] > nums[left] {
+		return nums[left]
 	}
+
 	for left <= right {
 		mid := (left + right) / 2
 		if (mid+1) < len(nums) && nums[mid] > nums[mid+1] {
 			return nums[mid+1]
 		}
 
-		if (mid-1) > 0 && nums[mid-1] > nums[mid] {
+		if (mid-1) > 0 && nums[mid] < nums[mid-1] {
 			return nums[mid]
 		}
 
