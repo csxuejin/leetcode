@@ -20,10 +20,8 @@ func searchMatrix(matrix [][]int, target int) bool {
 			return false
 		}
 
-		for j := 0; j < n; j++ {
-			if binarySearch(matrix[i], target) {
-				return true
-			}
+		if binarySearch(matrix[i], target) {
+			return true
 		}
 	}
 	return false
