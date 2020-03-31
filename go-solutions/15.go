@@ -11,20 +11,19 @@ func threeSum(nums []int) [][]int {
 			continue
 		}
 
-		for left, right := i+1, len(nums)-1; left < right; {
-			val := nums[i] + nums[left] + nums[right]
-
+		for l, r := i+1, len(nums)-1; l < r; {
+			val := nums[i] + nums[l] + nums[r]
 			switch {
 			case val == 0:
-				left, right = shrink(nums, left, right)
-				res = append(res, []int{nums[i], nums[left], nums[right]})
-				left, right = left+1, right-1
+				l, r = shrink(nums, l, r)
+				res = append(res, []int{nums[i], nums[l], nums[r]})
+				l, r = l+1, r-1
 
 			case val < 0:
-				left++
+				l++
 
 			case val > 0:
-				right--
+				r--
 			}
 		}
 	}
@@ -32,14 +31,14 @@ func threeSum(nums []int) [][]int {
 	return res
 }
 
-func shrink(nums []int, left, right int) (int, int) {
-	for left < len(nums)-1 && nums[left] == nums[left+1] {
-		left++
+func shrink(nums []int, l, r int) (int, int) {
+	for l < len(nums)-1 && nums[l] == nums[l+1] {
+		l++
 	}
 
-	for right-1 > left && nums[right] == nums[right-1] {
-		right--
+	for r-1 > l && nums[r] == nums[r-1] {
+		r--
 	}
 
-	return left, right
+	return l, r
 }
