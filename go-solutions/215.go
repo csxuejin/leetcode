@@ -1,13 +1,8 @@
 package main
 
 func findKthLargest(nums []int, k int) int {
-	sortElements(nums)
-
+	quickSort(nums, 0, len(nums)-1)
 	return nums[len(nums)-k]
-}
-
-func sortElements(s []int) {
-	quickSort(s, 0, len(s)-1)
 }
 
 func quickSort(s []int, start, end int) {
@@ -22,15 +17,13 @@ func quickSort(s []int, start, end int) {
 
 func partition(s []int, start, end int) int {
 	pivort := s[end]
-
-	i := start
-	for j := start; j < end; j++ {
-		if s[j] < pivort {
-			s[i], s[j] = s[j], s[i]
-			i++
+	counter := start
+	for i := start; i < end; i++ {
+		if s[i] < pivort {
+			s[counter], s[i] = s[i], s[counter]
+			counter++
 		}
 	}
-
-	s[i], s[end] = s[end], s[i]
-	return i
+	s[counter], s[end] = s[end], s[counter]
+	return counter
 }
