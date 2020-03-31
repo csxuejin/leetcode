@@ -10,10 +10,10 @@
 func reverseList(head *ListNode) *ListNode {
 	var prev *ListNode = nil
 	for head != nil {
-		tmp := head.Next
+		nxt := head.Next
 		head.Next = prev
 		prev = head
-		head = tmp
+		head = nxt
 	}
 
 	return prev
