@@ -1,26 +1,26 @@
 package main
 
+var res [][]int
+
 func permute(nums []int) [][]int {
-	var res [][]int
-	backtrack(&res, len(nums), nums, 0)
+	res = make([][]int, 0)
+	backtrack(nums, 0)
 	return res
 }
 
-func backtrack(res *[][]int, n int, nums []int, first int) {
-	if first == n {
+func backtrack(nums []int, first int) {
+	if first == len(nums) {
 		tmp := make([]int, len(nums))
 		copy(tmp, nums)
-		*res = append(*res, tmp[:])
+		res = append(res, tmp)
 		return
 	}
 
-	for i := first; i < n; i++ {
-		swap(nums, first, i)
-		backtrack(res, n, nums, first+1)
-		swap(nums, first, i)
-	}
-}
+	for i := first; i < len(nums); i++ {
+		nums[first], nums[i] = nums[i], nums[first]
 
-func swap(nums []int, a, b int) {
-	nums[a], nums[b] = nums[b], nums[a]
+		backtrack(nums, first+1)
+
+		nums[i], nums[first] = nums[first], nums[i]
+	}
 }
