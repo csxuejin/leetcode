@@ -2,8 +2,6 @@ package main
 
 import "sort"
 
-package main
-
 func groupAnagrams(strs []string) [][]string {
 	mm := make(map[string][]string)
 	for _, v := range strs{
