@@ -1,37 +1,43 @@
 package main
 
-// Definition for singly-linked list.
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	head := &ListNode{}
-	start := head
-	last := 0
+	var (
+		current, next int
+		head          = &ListNode{}
+		ptr           = head
+	)
+
 	for l1 != nil || l2 != nil {
-		val := last
+		current = next
+
 		if l1 != nil {
-			val += l1.Val
+			current += l1.Val
 			l1 = l1.Next
 		}
 
 		if l2 != nil {
-			val += l2.Val
+			current += l2.Val
 			l2 = l2.Next
 		}
 
-		start.Next = &ListNode{
-			Val: val % 10,
+		next = current / 10
+		current = current % 10
+
+		ptr.Next = &ListNode{
+			Val: current,
 		}
-		last = val / 10
-		start = start.Next
+
+		ptr = ptr.Next
 	}
 
-	if last != 0 {
-		start.Next = &ListNode{
-			Val: last,
+	if next != 0 {
+		ptr.Next = &ListNode{
+			Val: next,
 		}
 	}
 
