@@ -1,3 +1,5 @@
+package main
+
 func generate(numRows int) [][]int {
 	trian := [][]int{}
 	if numRows == 0 {
@@ -14,4 +16,3 @@ func generate(numRows int) [][]int {
 	}
 	return trian
 }
-

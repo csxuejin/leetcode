@@ -12,7 +12,7 @@ func longestCommonPrefix(strs []string) string {
 
 	default:
 		sort.SliceStable(strs, func(i, j int) bool {
-			return len(strs[i])< len(strs[j])
+			return len(strs[i]) < len(strs[j])
 		})
 
 		res := getLognestCommonPrefix(strs[0], strs[1])

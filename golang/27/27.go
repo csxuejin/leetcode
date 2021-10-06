@@ -30,4 +30,3 @@ func removeElement(nums []int, val int) int {
 	}
 	return index + 1
 }
-

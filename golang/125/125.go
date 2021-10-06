@@ -1,3 +1,5 @@
+package main
+
 import "strings"
 
 func isAlphaNum(c rune) bool {

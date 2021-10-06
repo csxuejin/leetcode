@@ -1,11 +1,10 @@
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+package main
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func bfs(s *[][]int, level int, root *TreeNode) {
 	if root == nil {
@@ -27,4 +26,3 @@ func levelOrder(root *TreeNode) [][]int {
 	bfs(&s, 0, root)
 	return s
 }
-

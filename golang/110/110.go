@@ -1,12 +1,12 @@
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+package main
+
 import "math"
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func getMax(a int, b int) int {
 	if a > b {
@@ -38,6 +38,3 @@ func isBalanced(root *TreeNode) bool {
 	}
 	return isBalanced(root.Left) && isBalanced(root.Right)
 }
-
-
-

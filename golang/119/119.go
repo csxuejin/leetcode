@@ -1,3 +1,5 @@
+package main
+
 func getRow(rowIndex int) []int {
 	trian := [][]int{}
 	trian = append(trian, []int{1})
@@ -14,6 +16,3 @@ func getRow(rowIndex int) []int {
 	}
 	return trian[rowIndex]
 }
-
-
-

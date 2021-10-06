@@ -1,11 +1,10 @@
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
+package main
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
 func minDepth(root *TreeNode) int {
 	if root == nil {
@@ -36,6 +35,3 @@ func min(a int, b int) int {
 	}
 	return b
 }
-
-
-
