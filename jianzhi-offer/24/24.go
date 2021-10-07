@@ -13,4 +13,3 @@ func reverseList(head *ListNode) *ListNode {
 
 	return prev
 }
-
