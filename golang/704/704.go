@@ -7,9 +7,9 @@ func search(nums []int, target int) int {
 		if nums[mid] == target {
 			return mid
 		} else if nums[mid] > target {
-			right--
+			right = mid - 1
 		} else if nums[mid] < target {
-			left++
+			left = mid + 1
 		}
 	}
 
