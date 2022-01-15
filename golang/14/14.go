@@ -1,7 +1,28 @@
 package main
 
-import "sort"
+import (
+	"fmt"
+)
 
+func longestCommonPrefix(strs []string) string {
+	if len(strs) == 1 {
+		return strs[0]
+	}
+	for i, v := range strs[0] {
+		fmt.Printf("v : %v\n", string(v))
+		for j := 1; j < len(strs); j++ {
+			runes := []rune(strs[j])
+			if i == len(runes) || runes[i] != v {
+				return strs[0][:i]
+			}
+		}
+	}
+
+	return strs[0]
+}
+
+// 方法二：先按字符串长度排序
+/*
 func longestCommonPrefix(strs []string) string {
 	switch len(strs) {
 	case 0:
@@ -41,3 +62,4 @@ func getLognestCommonPrefix(str1, str2 string) string {
 
 	return str1[:i]
 }
+*/
