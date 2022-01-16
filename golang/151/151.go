@@ -21,3 +21,35 @@ func reverse(str string) string {
 	}
 	return string(s)
 }
+
+/*方法二：
+不借用 split 方法，纯手动遍历
+
+func reverseWords(s string) string {
+    words := make([]string, 0)
+
+    start := -1
+    for i, v := range s {
+        if isSpace(v) {
+            if start != -1 {
+                words = append([]string{s[start:i]}, words...)
+                start = -1
+            } else {
+                continue
+            }
+        } else {
+            if start == -1 {
+                start = i
+            }
+            if i == len(s) - 1{
+                words = append([]string{s[start:]}, words...)
+            }
+        }
+    }
+    return strings.Join(words, " ")
+}
+
+func isSpace(v rune) bool {
+    return v == ' '
+}
+*/
