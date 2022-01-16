@@ -4,8 +4,7 @@ import "strings"
 
 func reverseWords(s string) string {
 	res := make([]string, 0)
-	strs := strings.Split(s, " ")
-	for _, v := range strs {
+	for _, v := range strings.Split(s, " ") {
 		res = append(res, reverse(v))
 	}
 
@@ -13,12 +12,9 @@ func reverseWords(s string) string {
 }
 
 func reverse(s string) string {
-	arr := []byte(s)
-	i, j := 0, len(arr)-1
-	for i < j {
+	arr := []rune(s)
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
 		arr[i], arr[j] = arr[j], arr[i]
-		i++
-		j--
 	}
 	return string(arr)
 }
