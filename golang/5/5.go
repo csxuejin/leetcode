@@ -8,27 +8,27 @@ func longestPalindrome(s string) string {
 		str += string(v) + "#"
 	}
 
-	maxLen := 0
+	maxLen := -1
 	pos := 0
-	arr := []byte(str)
-	for i := 0; i < len(arr); i++ {
-		length := check(arr, i)
-		if length > maxLen {
-			maxLen = length
+	for i := range str {
+		len := palindromeLen(str, i)
+		if len > maxLen {
+			maxLen = len
 			pos = i
 		}
 	}
-	res := str[pos-maxLen : pos+maxLen+1]
-	return strings.Replace(res, "#", "", -1)
+	str = str[pos-maxLen : pos+maxLen+1]
+	return strings.Replace(str, "#", "", -1)
 }
 
-func check(arr []byte, pos int) int {
-	start, end := pos-1, pos+1
-	length := 0
-	for start >= 0 && end < len(arr) && arr[start] == arr[end] {
-		start--
-		end++
+func palindromeLen(str string, pos int) (length int) {
+	l, r := pos-1, pos+1
+	for l >= 0 && r < len(str) {
+		if str[l] != str[r] {
+			return
+		}
+		l, r = l-1, r+1
 		length++
 	}
-	return length
+	return
 }
