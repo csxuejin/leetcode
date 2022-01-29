@@ -1,5 +1,6 @@
 package main
 
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 // leetcode 对 go 的全局变量的支持有问题, 所以干脆用指针传递二维数组好了
 
 type TreeNode struct {
