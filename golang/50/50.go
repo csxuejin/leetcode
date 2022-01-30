@@ -1,5 +1,13 @@
 package main
 
+func myPow(x float64, n int) float64 {
+	if n < 0 {
+		x = 1 / x
+		n = -n
+	}
+	return fastPow(x, n)
+}
+
 func fastPow(x float64, n int) float64 {
 	if n == 0 {
 		return 1.0
@@ -10,12 +18,4 @@ func fastPow(x float64, n int) float64 {
 	} else {
 		return half * half * x
 	}
-}
-
-func myPow(x float64, n int) float64 {
-	if n < 0 {
-		x = 1 / x
-		n = -n
-	}
-	return fastPow(x, n)
 }
