@@ -18,9 +18,7 @@ func backtrack(nums []int, first int) {
 
 	for i := first; i < len(nums); i++ {
 		nums[first], nums[i] = nums[i], nums[first]
-
 		backtrack(nums, first+1)
-
-		nums[i], nums[first] = nums[first], nums[i]
+		nums[first], nums[i] = nums[i], nums[first]
 	}
 }
