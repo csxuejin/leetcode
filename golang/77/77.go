@@ -1,21 +1,27 @@
 package main
 
+var (
+	res [][]int
+	cur []int
+)
+
 func combine(n int, k int) [][]int {
-	var (
-		res  [][]int
-		nums []int
-	)
-	backtrack(&res, nums, n, k, 1)
+	res = make([][]int, 0)
+	cur = make([]int, 0)
+
+	backtrack(n, k, 1)
 	return res
 }
 
-func backtrack(res *[][]int, nums []int, n, k, first int) {
-	if len(nums) == k {
-		*res = append(*res, append([]int{}, nums...))
+func backtrack(n, k, first int) {
+	if len(cur) == k {
+		res = append(res, append([]int{}, cur...))
 		return
 	}
 
 	for i := first; i <= n; i++ {
-		backtrack(res, append(nums, i), n, k, i+1)
+		cur = append(cur, i)
+		backtrack(n, k, i+1)
+		cur = cur[:len(cur)-1]
 	}
 }
