@@ -42,32 +42,31 @@ func minDepth(root *TreeNode) int {
 也可以用 DFS，如下：
 
 func minDepth(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
+    switch {
+    case root == nil:
+        return 0
 
-	left := root.Left
-	right := root.Right
+    case root.Left == nil && root.Right == nil:
+        return 1
 
-	if left == nil && right == nil {
-		return 1
-	}
+    case root.Left == nil && root.Right != nil:
+        return minDepth(root.Right) + 1
 
-	if left != nil && right != nil {
-		return min(minDepth(left)+1, minDepth(right)+1)
-	} else {
-		if left == nil && right != nil {
-			return minDepth(right) + 1
-		} else {
-			return minDepth(left) + 1
-		}
-	}
+    case root.Left != nil && root.Right == nil:
+        return minDepth(root.Left) + 1
+
+    case root.Left != nil && root.Right != nil:
+        return min( minDepth(root.Left), minDepth(root.Right) ) + 1
+    }
+
+    return 0
 }
 
-func min(a int, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
+func min(a, b int) int {
+    if a < b {
+        return a
+    }
+
+    return b
+}}
 */
