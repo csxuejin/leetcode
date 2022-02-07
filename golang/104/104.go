@@ -24,3 +24,26 @@ func max(a, b int) int {
 	}
 	return b
 }
+
+/*
+方法二：
+
+func maxDepth(root *TreeNode) int {
+    return helper(root, 0)
+}
+
+func helper(root *TreeNode, level int) int {
+    if root == nil {
+        return level
+    }
+
+    return max(helper(root.Left, level + 1), helper(root.Right, level + 1))
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
+*/
