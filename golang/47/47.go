@@ -2,21 +2,23 @@ package main
 
 import "sort"
 
+var ans [][]int
+
 func permuteUnique(nums []int) [][]int {
 	if len(nums) == 0 {
 		return nil
 	}
 
 	sort.Ints(nums)
-	ans := make([][]int, 0)
-	backtrackUnique(nums, nil, &ans)
+	ans = make([][]int, 0)
+	backtrackUnique(nums, nil)
 
 	return ans
 }
 
-func backtrackUnique(nums []int, prev []int, ans *[][]int) {
+func backtrackUnique(nums []int, prev []int) {
 	if len(nums) == 0 {
-		*ans = append(*ans, append([]int{}, prev...))
+		ans = append(ans, append([]int{}, prev...))
 		return
 	}
 
@@ -27,6 +29,6 @@ func backtrackUnique(nums []int, prev []int, ans *[][]int) {
 		tmp := append([]int{}, nums[0:i]...)
 		newNums := append(tmp, nums[i+1:]...)
 		newPrev := append(prev, nums[i])
-		backtrackUnique(newNums, newPrev, ans)
+		backtrackUnique(newNums, newPrev)
 	}
 }
