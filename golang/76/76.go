@@ -6,36 +6,33 @@ func minWindow(s string, t string) string {
 		return res
 	}
 
-	chMap := make(map[byte]int)
+	need := make(map[byte]int)
 	for _, v := range []byte(t) {
-		chMap[v]++
+		need[v]++
 	}
-	required := len(chMap)
 
 	l, r := 0, 0
-	formed := 0
-	curChMap := make(map[byte]int)
-	for r < len(s) {
+	valid := 0
+	window := make(map[byte]int)
+	for ; r < len(s); r++ {
 		c := s[r]
-		curChMap[c]++
-		if curChMap[c] == chMap[c] {
-			formed++
+		window[c]++
+		if window[c] == need[c] {
+			valid++
 		}
 
-		for l <= r && formed == required {
+		// shrink
+		for ; l <= r && valid == len(need); l++ {
 			c = s[l]
 			if res == "" || (r-l+1) < len(res) {
 				res = s[l : r+1]
 			}
 
-			curChMap[c]--
-			if chMap[c] > 0 && curChMap[c] < chMap[c] {
-				formed--
+			window[c]--
+			if need[c] > 0 && window[c] < need[c] {
+				valid--
 			}
-
-			l++
 		}
-		r++
 	}
 	return res
 }
