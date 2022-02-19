@@ -1,13 +1,12 @@
 package main
 
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	len1 := len(nums1)
-	len2 := len(nums2)
-
 	var (
 		odd        bool
 		count, mid int
 		res        float64
+		len1       = len(nums1)
+		len2       = len(nums2)
 	)
 
 	if (len1+len2)%2 != 0 {
