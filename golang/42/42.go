@@ -1,5 +1,9 @@
 package main
 
+/*
+- leftMax[i] 表示左侧到 i 位置为止最高的柱子高度
+- rightMax[i] 表示右侧到 i 位置位置最高的柱子高度
+*/
 func trap(height []int) int {
 	if len(height) == 0 {
 		return 0
@@ -20,7 +24,7 @@ func trap(height []int) int {
 	}
 
 	ans := 0
-	for i := 0; i < len(height); i++ {
+	for i := range height {
 		ans += min(leftMax[i], rightMax[i]) - height[i]
 	}
 	return ans
