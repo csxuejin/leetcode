@@ -12,14 +12,10 @@ func isPalindrome(head *ListNode) bool {
 		head = head.Next
 	}
 
-	i := 0
-	j := len(arr) - 1
-	for i < j {
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
 		if arr[i] != arr[j] {
 			return false
 		}
-		i++
-		j--
 	}
 	return true
 }
