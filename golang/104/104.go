@@ -11,10 +11,6 @@ func maxDepth(root *TreeNode) int {
 		return 0
 	}
 
-	if root.Left == nil && root.Right == nil {
-		return 1
-	}
-
 	return max(maxDepth(root.Left), maxDepth(root.Right)) + 1
 }
 
