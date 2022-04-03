@@ -16,7 +16,7 @@ func countSubstrings(s string) int {
 func countPalindrome(s string, pos int) int {
 	left, right := pos-1, pos+1
 	cnt := 1
-	for left >= 0 && left < right && right < len(s) {
+	for left >= 0 && right < len(s) {
 		if s[left] != s[right] {
 			return cnt
 		}
