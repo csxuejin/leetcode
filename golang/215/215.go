@@ -6,7 +6,7 @@ func findKthLargest(nums []int, k int) int {
 }
 
 func quickSort(s []int, start, end int) {
-	if start >= end {
+	if start >= end { // 注意这个边界
 		return
 	}
 
@@ -16,10 +16,10 @@ func quickSort(s []int, start, end int) {
 }
 
 func partition(s []int, start, end int) int {
-	pivort := s[end]
+	pivot := s[end]
 	counter := start
 	for i := start; i < end; i++ {
-		if s[i] < pivort {
+		if s[i] < pivot {
 			s[counter], s[i] = s[i], s[counter]
 			counter++
 		}
