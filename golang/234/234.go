@@ -6,16 +6,34 @@ type ListNode struct {
 }
 
 func isPalindrome(head *ListNode) bool {
-	arr := make([]int, 0)
-	for head != nil {
-		arr = append(arr, head.Val)
-		head = head.Next
+	slow, fast := head, head
+	for fast != nil && fast.Next != nil {
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
 
-	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
-		if arr[i] != arr[j] {
+	left := head
+	right := reverse(slow)
+	for right != nil {
+		if left.Val != right.Val {
 			return false
 		}
+		left = left.Next
+		right = right.Next
 	}
+
 	return true
+}
+
+func reverse(h *ListNode) *ListNode {
+	var prev *ListNode
+	cur := h
+	for cur != nil {
+		nxt := cur.Next
+		cur.Next = prev
+		prev = cur
+		cur = nxt
+	}
+
+	return prev
 }
