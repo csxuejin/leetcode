@@ -6,19 +6,17 @@ var (
 )
 
 func subsets(nums []int) [][]int {
-	res = [][]int{
-		[]int{},
-	}
+	res = [][]int{[]int{}}
 	cur = make([]int, 0)
 
 	for i := 0; i < len(nums); i++ {
-		helper(nums, i)
+		backtrack(nums, i)
 	}
 
 	return res
 }
 
-func helper(nums []int, pos int) {
+func backtrack(nums []int, pos int) {
 	cur = append(cur, nums[pos])
 
 	tmp := make([]int, len(cur))
@@ -26,7 +24,7 @@ func helper(nums []int, pos int) {
 	res = append(res, tmp)
 
 	for i := pos + 1; i < len(nums); i++ {
-		helper(nums, i)
+		backtrack(nums, i)
 	}
 
 	// restore 'cur' slice state
