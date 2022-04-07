@@ -1,21 +1,24 @@
 package main
 
+// 滑动窗口问题
 func lengthOfLongestSubstring(s string) int {
+	cnt := make(map[rune]int)
+
 	left, right := 0, 0
 	res := 0
-	m := make(map[byte]int)
 
-	for right < len(s) {
-		c := s[right]
-		m[c]++
-		right++
+	ss := []rune(s)
+	for _, v := range ss {
+		cnt[v]++
 
-		for m[c] > 1 {
-			m[s[left]]--
+		for cnt[v] > 1 {
+			// shrink
+			cnt[ss[left]]--
 			left++
 		}
 
-		res = max(res, right-left)
+		res = max(res, (right-left)+1)
+		right++
 	}
 
 	return res
@@ -25,6 +28,5 @@ func max(a, b int) int {
 	if a > b {
 		return a
 	}
-
 	return b
 }
