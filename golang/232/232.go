@@ -1,68 +1,51 @@
 package main
 
 type MyQueue struct {
-	iStack []int
-	oStack []int
+	istack []int
+	ostack []int
 }
 
-/** Initialize your data structure here. */
 func Constructor() MyQueue {
 	return MyQueue{
-		iStack: make([]int, 0),
-		oStack: make([]int, 0),
+		istack: []int{},
+		ostack: []int{},
 	}
 }
 
-/** Push element x to the back of queue. */
 func (this *MyQueue) Push(x int) {
-	this.iStack = append(this.iStack, x)
+	this.istack = append(this.istack, x)
 }
 
-/** Removes the element from in front of queue and returns that element. */
 func (this *MyQueue) Pop() int {
-	var res int
-	if len(this.oStack) > 0 {
-		res = this.oStack[len(this.oStack)-1]
-	} else {
-		tmp := this.trans()
-		res = tmp[len(tmp)-1]
-		this.oStack = append(this.oStack, tmp...)
+	if len(this.ostack) > 0 {
+		ele := this.ostack[len(this.ostack)-1]
+		this.ostack = this.ostack[:len(this.ostack)-1]
+		return ele
 	}
 
-	this.oStack = this.oStack[:len(this.oStack)-1]
+	for len(this.istack) > 0 {
+		ele := this.istack[len(this.istack)-1]
+		this.ostack = append(this.ostack, ele)
+		this.istack = this.istack[:len(this.istack)-1]
+	}
+
+	res := this.ostack[len(this.ostack)-1]
+	this.ostack = this.ostack[:len(this.ostack)-1]
 	return res
 }
 
-func reverse(nums []int) {
-	for l, r := 0, len(nums)-1; l < r; l, r = l+1, r-1 {
-		nums[l], nums[r] = nums[r], nums[l]
-	}
-}
-
-func (this *MyQueue) trans() []int {
-	tmp := make([]int, len(this.iStack))
-	copy(tmp, this.iStack)
-	reverse(tmp)
-	this.iStack = []int{}
-	return tmp
-}
-
-/** Get the front element. */
 func (this *MyQueue) Peek() int {
-	var res int
-	if len(this.oStack) > 0 {
-		res = this.oStack[len(this.oStack)-1]
-	} else {
-		tmp := this.trans()
-		res = tmp[len(tmp)-1]
-		this.oStack = append(this.oStack, tmp...)
+	if len(this.istack) == 0 && len(this.ostack) == 0 {
+		return 0
 	}
-	return res
+
+	ele := this.Pop()
+	this.ostack = append(this.ostack, ele)
+	return ele
 }
 
-/** Returns whether the queue is empty. */
 func (this *MyQueue) Empty() bool {
-	return len(this.iStack) == 0 && len(this.oStack) == 0
+	return len(this.istack) == 0 && len(this.ostack) == 0
 }
 
 /**

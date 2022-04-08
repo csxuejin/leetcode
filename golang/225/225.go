@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type MyStack struct {
 	q1, q2 []int
 }
@@ -41,7 +39,6 @@ func (this *MyStack) Top() int {
 
 /** Returns whether the stack is empty. */
 func (this *MyStack) Empty() bool {
-	fmt.Printf("q1 is %v\n", this.q1)
 	return len(this.q1) == 0
 }
 
