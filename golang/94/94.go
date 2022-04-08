@@ -9,24 +9,14 @@ type TreeNode struct {
 }
 
 func inorderTraversal(root *TreeNode) []int {
-	var (
-		res     = make([]int, 0)
-		inorder func(node *TreeNode)
-	)
-
-	inorder = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-
-		inorder(root.Left)
-
-		res = append(res, root.Val)
-
-		inorder(root.Right)
+	if root == nil {
+		return nil
 	}
 
-	inorder(root)
+	res := make([]int, 0)
+	res = append(res, inorderTraversal(root.Left)...)
+	res = append(res, root.Val)
+	res = append(res, inorderTraversal(root.Right)...)
 
 	return res
 }
