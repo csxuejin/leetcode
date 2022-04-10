@@ -1,5 +1,7 @@
 package main
 
+// https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string/
+
 func minInsertions(s string) int {
 	insert := 0    // 插入的左右括号之和
 	needRight := 0 // 当前需要的右括号数
