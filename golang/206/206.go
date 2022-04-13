@@ -18,15 +18,15 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 
-// Solution 2: Recursive
-func reverseList_recursively(head *ListNode) *ListNode {
+/* 也可能考察递归的写法
+func reverseList(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 
-	p := reverseList(head.Next)
-
+	last := reverseList(head.Next)
 	head.Next.Next = head
 	head.Next = nil
-	return p
+	return last
 }
+*/
