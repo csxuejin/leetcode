@@ -10,25 +10,24 @@ func findAnagrams(s string, p string) []int {
 	valid := 0
 	window := make(map[byte]int)
 	result := make([]int, 0)
-	for right < len(s) {
+	for ; right < len(s); right++ {
 		c := s[right]
 		window[c]++
-		right++
 
 		if window[c] == need[c] {
 			valid++
 		}
 
-		for right-left >= len(p) {
+		for right-left+1 >= len(p) {
 			if valid == len(need) {
 				result = append(result, left)
 			}
 
-			c = s[left]
-			if window[c] == need[c] {
+			lVal := s[left]
+			if window[lVal] == need[lVal] {
 				valid--
 			}
-			window[c]--
+			window[lVal]--
 			left++
 		}
 	}
