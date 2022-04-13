@@ -6,6 +6,35 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func rightSideView(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+
+	q := []*TreeNode{root}
+
+	res := make([]int, 0)
+	for len(q) > 0 {
+		res = append(res, q[len(q)-1].Val)
+
+		tmp := q
+		q = make([]*TreeNode, 0)
+		for _, v := range tmp {
+			if v.Left != nil {
+				q = append(q, v.Left)
+			}
+
+			if v.Right != nil {
+				q = append(q, v.Right)
+			}
+		}
+	}
+
+	return res
+}
+
+/* 方法二
+
 var res [][]int
 
 func rightSideView(root *TreeNode) []int {
@@ -36,3 +65,4 @@ func levelOrder(root *TreeNode, level int) {
 	levelOrder(root.Left, level+1)
 	levelOrder(root.Right, level+1)
 }
+*/
