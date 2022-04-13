@@ -8,6 +8,38 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+// 队列
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+
+	queue := []*TreeNode{root}
+	res := make([][]int, 0)
+
+	for len(queue) > 0 {
+		nums := make([]int, 0)
+		size := len(queue)
+		for i := 0; i < size; i++ {
+			r := queue[0]
+			queue = queue[1:]
+			nums = append(nums, r.Val)
+			if r.Left != nil {
+				queue = append(queue, r.Left)
+			}
+			if r.Right != nil {
+				queue = append(queue, r.Right)
+			}
+		}
+		res = append(res, nums)
+	}
+
+	return res
+}
+
+/*
+// 递归
+
 var res [][]int
 
 func levelOrder(root *TreeNode) [][]int {
@@ -30,3 +62,4 @@ func bfs(level int, root *TreeNode) {
 	bfs(level+1, root.Left)
 	bfs(level+1, root.Right)
 }
+*/
