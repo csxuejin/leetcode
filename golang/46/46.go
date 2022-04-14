@@ -1,5 +1,43 @@
 package main
 
+var cur []int
+var res [][]int
+var used []bool
+
+func permute(nums []int) [][]int {
+	cur = make([]int, 0)
+	res = make([][]int, 0)
+	used = make([]bool, len(nums))
+
+	backtrack(nums)
+	return res
+}
+
+func backtrack(nums []int) {
+	if len(cur) == len(nums) {
+		t := make([]int, len(cur))
+		copy(t, cur)
+		res = append(res, t)
+	}
+
+	for i := 0; i < len(nums); i++ {
+		if used[i] {
+			continue
+		}
+
+		used[i] = true
+		cur = append(cur, nums[i])
+
+		backtrack(nums)
+
+		cur = cur[:len(cur)-1]
+		used[i] = false
+	}
+
+	return
+}
+
+/*
 var res [][]int
 
 func permute(nums []int) [][]int {
@@ -22,3 +60,4 @@ func backtrack(nums []int, first int) {
 		nums[first], nums[i] = nums[i], nums[first]
 	}
 }
+*/

@@ -1,32 +1,27 @@
 package main
 
-var (
-	res [][]int
-	cur []int
-)
+var res [][]int
+var cur []int
 
 func subsets(nums []int) [][]int {
-	res = [][]int{[]int{}}
+	res = make([][]int, 0)
 	cur = make([]int, 0)
 
-	for i := 0; i < len(nums); i++ {
-		backtrack(nums, i)
-	}
+	backtrack(nums, 0)
 
 	return res
 }
 
-func backtrack(nums []int, pos int) {
-	cur = append(cur, nums[pos])
+func backtrack(nums []int, start int) {
+	t := make([]int, len(cur))
+	copy(t, cur)
+	res = append(res, t)
 
-	tmp := make([]int, len(cur))
-	copy(tmp, cur)
-	res = append(res, tmp)
-
-	for i := pos + 1; i < len(nums); i++ {
-		backtrack(nums, i)
+	for i := start; i < len(nums); i++ {
+		cur = append(cur, nums[i])
+		backtrack(nums, i+1)
+		cur = cur[:len(cur)-1]
 	}
 
-	// restore 'cur' slice state
-	cur = cur[:len(cur)-1]
+	return
 }
