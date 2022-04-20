@@ -1,9 +1,12 @@
 package main
 
-func reverseString(s string) string {
-	c := []rune(s)
-	for i, j := 0, len(c)-1; i < j; i, j = i+1, j-1 {
-		c[i], c[j] = c[j], c[i]
+//https://leetcode-cn.com/problems/reverse-string/
+
+func reverseString(s []byte) {
+	left, right := 0, len(s)-1
+	for left < right {
+		s[left], s[right] = s[right], s[left]
+		left++
+		right--
 	}
-	return string(c)
 }
