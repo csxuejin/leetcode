@@ -5,6 +5,33 @@ import "strings"
 func longestPalindrome(s string) string {
 	str := "#"
 	for _, v := range s {
+		str = str + string(v) + "#"
+	}
+
+	res := ""
+	for i := 0; i < len(str); i++ {
+		left, right := i-1, i+1
+		for left >= 0 && right < len(str) {
+			if str[left] != str[right] {
+				break
+			}
+
+			if right-left+1 > len(res) {
+				res = str[left : right+1]
+			}
+
+			left--
+			right++
+		}
+	}
+
+	return strings.Replace(res, "#", "", -1)
+}
+
+/*
+func longestPalindrome(s string) string {
+	str := "#"
+	for _, v := range s {
 		str += string(v) + "#"
 	}
 
@@ -32,3 +59,4 @@ func palindromeLen(str string, pos int) (length int) {
 	}
 	return
 }
+*/

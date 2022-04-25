@@ -18,9 +18,7 @@ func helper() int {
 
 		if isDigit(v) {
 			num = num*10 + int(v-'0')
-		}
-
-		if v == '(' {
+		} else if v == '(' {
 			num = helper()
 		}
 
