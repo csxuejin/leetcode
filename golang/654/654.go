@@ -32,3 +32,33 @@ func constructMaximumBinaryTree(nums []int) *TreeNode {
 	}
 	return root
 }
+
+/*
+func constructMaximumBinaryTree(nums []int) *TreeNode {
+   return helper(nums, 0 , len(nums)-1)
+}
+
+func helper(nums []int, lo, hi int) *TreeNode{
+    if lo > hi {
+        return nil
+    }
+
+    maxVal := math.MinInt32
+    index := 0
+
+    for i:=lo; i<=hi; i++ {
+        v := nums[i]
+        if v > maxVal {
+            maxVal = v
+            index = i
+        }
+    }
+
+    root := &TreeNode{
+        Val: maxVal,
+    }
+    root.Left = helper(nums, lo, index-1)
+    root.Right = helper(nums, index+1, hi)
+    return root
+}
+*/
